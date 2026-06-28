@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A0E1A">
+<title>Zuckel AG — Unternehmenswert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="index.html">
+      <img src="assets/img/logo.png" alt="Zuckel AG">
+      <span>ZUCKEL AG</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">☰</button>
+    <div class="topnav-links">
+      <a href="index.html">Home</a>
+      <a href="standorte.html">Standorte</a>
+      <a href="mitarbeiter.html">Mitarbeiter</a>
+      <a href="unternehmenswert.html" class="active">Unternehmenswert</a>
+      <a href="anteile.html">Investor Relations</a>
+      <a href="karriere.html">Karriere</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <header class="page-header">
+    <div class="title-block">
+      <p class="eyebrow">Stellari Continuum · Salaria</p>
+      <h1>Unternehmenswert</h1>
+      <p class="lede">Geschätzter Gesamtwert der Zuckel Aktiengesellschaft.</p>
+    </div>
+    <div class="stamp">VERTRAULICH</div>
+  </header>
+
+  <section class="panel">
+    <div class="section-head">
+      <h2>Aktueller Wert</h2>
+      <div id="editControls"></div>
+    </div>
+    <div id="valueDisplay">
+      <div class="loading-state"><span class="big-icon">⋯</span>Wert wird geladen…</div>
+    </div>
+
+    <form id="updateForm" class="hidden" style="margin-top:18px;">
+      <div class="field-row">
+        <div class="field">
+          <label for="newValue">Neuer Wert</label>
+          <input type="number" id="newValue" min="0" step="1">
+        </div>
+        <div class="field">
+          <label for="newUnit">Einheit (optional)</label>
+          <input type="text" id="newUnit" placeholder="z. B. Talente">
+        </div>
+        <div class="field">
+          <label for="newNote">Notiz (optional)</label>
+          <input type="text" id="newNote" placeholder="z. B. Phase I abgeschlossen">
+        </div>
+      </div>
+      <div class="modal-actions" style="margin-top:14px; justify-content:flex-start;">
+        <button type="button" class="btn-ghost" id="cancelUpdate">Abbrechen</button>
+        <button type="submit" class="btn-primary" id="submitUpdate">Speichern</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel">
+    <div class="section-head"><h2>Verlauf</h2></div>
+    <div class="linechart-wrap" id="chartContainer"></div>
+    <div id="historyContainer" style="margin-top:16px;"></div>
+  </section>
+
+  <footer class="site-footer">
+    <span class="muted">Live-Daten · für alle Besucher sichtbar</span>
+    <div class="footer-controls" id="footerControls"></div>
+  </footer>
+
+  <p class="legal">Nur für interne Zwecke. Zuckel Aktiengesellschaft.</p>
+
+</div>
+
+<div class="overlay hidden" id="loginOverlay">
+  <div class="modal">
+    <h2>Admin-Zugang</h2>
+    <p class="muted">Mit deinem Firebase-Konto anmelden, um Inhalte zu bearbeiten.</p>
+    <div class="field">
+      <label for="emailInput">E-Mail</label>
+      <input type="email" id="emailInput" autocomplete="username" placeholder="admin@example.com">
+    </div>
+    <div class="field">
+      <label for="passwordInput">Passwort</label>
+      <input type="password" id="passwordInput" autocomplete="current-password" placeholder="Passwort">
+    </div>
+    <div class="error hidden" id="loginError">Login fehlgeschlagen.</div>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="cancelLogin">Abbrechen</button>
+      <button class="btn-primary" id="submitLogin">Anmelden</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="assets/pages/unternehmenswert.js"></script>
+</body>
+</html>
